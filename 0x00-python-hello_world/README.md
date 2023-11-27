@@ -1,4 +1,4 @@
-#Hello world Python 
+#Hello world Python
 Why Python programming is awesome
 Who created Python
 Who is Guido van Rossum
@@ -8,4 +8,3 @@ How to use the Python interpreter
 How to print text and variables using print
 How to use strings
 What are indexing and slicing in Python
-
