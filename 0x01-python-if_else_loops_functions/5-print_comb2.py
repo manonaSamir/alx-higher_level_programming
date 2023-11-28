@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 for item in range(0, 99):
-    if item <= 9:
-        print("0{}, ".format(item), end="")
+    if item == 98:
+        print("{}".format(item), end="")
     else:
-        print("{}, ".format(item), end="")
-print("99")
+        print("{:02}".format(item), end=", ")
+
