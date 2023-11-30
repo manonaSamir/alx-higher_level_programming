@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print(*map(chr, range(65, 91)), sep='')
+if __name__ == "__main__":
+    print(*map(chr, range(65, 91)), sep='')
