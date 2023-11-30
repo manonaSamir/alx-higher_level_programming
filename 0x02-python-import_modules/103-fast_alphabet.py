@@ -1,2 +1,4 @@
 #!/usr/bin/python3
-import upper_alph
+if __name__ == "__main__":
+    import upper_alph
+    
