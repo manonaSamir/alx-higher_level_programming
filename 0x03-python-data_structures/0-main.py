@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-add_tuple = __import__('7-add_tuple').add_tuple
+divisible_by_2 = __import__('10-divisible_by_2').divisible_by_2
 
-tuple_a = (1, 89)
-tuple_b = (88, 11)
-new_tuple = add_tuple(tuple_a, tuple_b)
-print(new_tuple)
+my_list = [0, 1, 2, 3, 4, 5, 6]
+list_result = divisible_by_2(my_list)
 
-print(add_tuple(tuple_a, (1, )))
-print(add_tuple(tuple_a, ()))
+i = 0
+while i < len(list_result):
+    print("{:d} {:s} divisible by 2".format(my_list[i], "is" if list_result[i] else "is not"))
+    i += 1
