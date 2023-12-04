@@ -30,27 +30,39 @@ listint_t *reverseList(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *front = *head;
-	listint_t *rare = *head;
+	listint_t *tmp, *rev, *mid;
+	size_t size = 0, i;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (front != NULL && front->next != NULL)
+
+	tmp = *head;
+	while (tmp)
 	{
-		front = front->next->next;
-		rare = rare->next;
+		size++;
+		tmp = tmp->next;
 	}
-	listint_t *reversedSecondHalf = reverseList(&rare);
 
-	listint_t *firstHalf = *head;
+	tmp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		tmp = tmp->next;
 
-	while (reversedSecondHalf != NULL)
+	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+		return (0);
+
+	tmp = tmp->next->next;
+	rev = reverse_listint(&tmp);
+	mid = rev;
+
+	tmp = *head;
+	while (rev)
 	{
-		if (firstHalf->n != reversedSecondHalf->n)
+		if (tmp->n != rev->n)
 			return (0);
-		firstHalf = firstHalf->next;
-		reversedSecondHalf = reversedSecondHalf->next;
+		tmp = tmp->next;
+		rev = rev->next;
 	}
-	reverseList(&front);
+	reverse_listint(&mid);
+
 	return (1);
 }
