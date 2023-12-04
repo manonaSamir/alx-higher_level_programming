@@ -33,11 +33,11 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (front != NULL && front->next != NULL)
+	/*while (front != NULL && front->next != NULL)
 	{
 		front = front->next->next;
 		rare = rare->next;
-	}
+	}*/
 	listint_t *reversedSecondHalf = reverseList(&rare);
 	listint_t *firstHalf = *head;
 
