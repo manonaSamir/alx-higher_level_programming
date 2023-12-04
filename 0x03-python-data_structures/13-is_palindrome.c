@@ -16,7 +16,6 @@ int is_palindrome(listint_t **head)
 		front = front->next->next;
 		rare = rare->next;
 	}
-
 	/*Reverse the second half of the linked list*/
 	listint_t *reversedSecondHalf = reverseList(rare);
 
@@ -31,7 +30,6 @@ int is_palindrome(listint_t **head)
 		firstHalf = firstHalf->next;
 		reversedSecondHalf = reversedSecondHalf->next;
 	}
-
 	return (1);
 }
 
