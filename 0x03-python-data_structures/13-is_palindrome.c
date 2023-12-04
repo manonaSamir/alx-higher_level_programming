@@ -10,6 +10,9 @@ int is_palindrome(listint_t **head)
 	listint_t *front = *head;
 	listint_t *rare = *head;
 
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
+
 	/*Find the middle of the linked list*/
 	while (front != NULL && front->next != NULL)
 	{
