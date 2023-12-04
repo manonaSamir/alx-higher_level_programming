@@ -3,7 +3,7 @@
 /**
  * reverseList - reverse list
  * @head: pointer to pointer of first node of listint_t list
- * Return: reversed list
+ * Return: A pointer to the head of the reversed list.
  */
 listint_t *reverseList(listint_t **head)
 {
@@ -22,9 +22,11 @@ listint_t *reverseList(listint_t **head)
 }
 
 /**
- * is_palindrome - adds a new node at the end of a listint_t list
- * @head: pointer to pointer of first node of listint_t list
- * Return: if success is_palindrome
+ * is_palindrome - Checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of the linked list.
+ *
+ * Return: If the linked list is not a palindrome - 0.
+ *         If the linked list is a palindrome - 1.
  */
 int is_palindrome(listint_t **head)
 {
