@@ -37,11 +37,11 @@ int is_palindrome(listint_t **head)
  */
 listint_t *reverseList(listint_t *head)
 {
-	listint_t *prev = NULL;
+	listint_t *prev = 0;
 	listint_t *current = head;
 	listint_t *next;
 
-	while (current != NULL)
+	while (current != 0)
 	{
 		next = current->next;
 		current->next = prev;
