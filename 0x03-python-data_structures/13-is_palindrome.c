@@ -1,5 +1,10 @@
 #include "lists.h"
 
+/**
+ * is_palindrome - adds a new node at the end of a listint_t list
+ * @head: pointer to pointer of first node of listint_t list
+ * Return: if success is_palindrome
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t *front = *head;
@@ -17,12 +22,12 @@ int is_palindrome(listint_t **head)
 
 	/* Compare the first half and reversed second half*/
 	listint_t *firstHalf = *head;
+
 	while (reversedSecondHalf != NULL)
 	{
 		if (firstHalf->n != reversedSecondHalf->n)
-		{
-			return 0; /*Not a palindrome*/
-		}
+			return (0); /*Not a palindrome*/
+
 		firstHalf = firstHalf->next;
 		reversedSecondHalf = reversedSecondHalf->next;
 	}
@@ -30,6 +35,11 @@ int is_palindrome(listint_t **head)
 	return (1);
 }
 
+/**
+ * reverseList - reverse list
+ * @head: pointer to pointer of first node of listint_t list
+ * Return: reversed list
+ */
 listint_t *reverseList(listint_t *head)
 {
 	listint_t *prev = NULL;
