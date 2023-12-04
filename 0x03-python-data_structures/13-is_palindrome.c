@@ -1,5 +1,8 @@
 #include "lists.h"
 
+listint_t *reverseList(listint_t **head);
+int is_palindrome(listint_t **head);
+
 /**
  * reverseList - reverse list
  * @head: pointer to pointer of first node of listint_t list
@@ -30,39 +33,27 @@ listint_t *reverseList(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp, *rev, *mid;
-	size_t size = 0, i;
+	listint_t *front = *head;
+	listint_t *rare = *head;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-
-	tmp = *head;
-	while (tmp)
+	while (front != NULL && front->next != NULL)
 	{
-		size++;
-		tmp = tmp->next;
+		front = front->next->next;
+		rare = rare->next;
 	}
+	listint_t *reversedSecondHalf = reverseList(&rare);
 
-	tmp = *head;
-	for (i = 0; i < (size / 2) - 1; i++)
-		tmp = tmp->next;
+	listint_t *firstHalf = *head;
 
-	if ((size % 2) == 0 && tmp->n != tmp->next->n)
-		return (0);
-
-	tmp = tmp->next->next;
-	rev = reverse_listint(&tmp);
-	mid = rev;
-
-	tmp = *head;
-	while (rev)
+	while (reversedSecondHalf != NULL)
 	{
-		if (tmp->n != rev->n)
+		if (firstHalf->n != reversedSecondHalf->n)
 			return (0);
-		tmp = tmp->next;
-		rev = rev->next;
+		firstHalf = firstHalf->next;
+		reversedSecondHalf = reversedSecondHalf->next;
 	}
-	reverse_listint(&mid);
-
+	reverseList(&front);
 	return (1);
 }
