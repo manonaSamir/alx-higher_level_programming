@@ -5,20 +5,20 @@
  * @head: pointer to pointer of first node of listint_t list
  * Return: reversed list
  */
-listint_t *reverseList(listint_t *head)
+listint_t *reverseList(listint_t **head)
 {
-	listint_t *prev = 0;
-	listint_t *current = head;
-	listint_t *next;
+	listint_t *node = *head, *next, *prev = NULL;
 
-	while (current != 0)
+	while (node)
 	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		next = node->next;
+		node->next = prev;
+		prev = node;
+		node = next;
 	}
-	return (prev);
+
+	*head = prev;
+	return (*head);
 }
 
 /**
@@ -38,7 +38,7 @@ int is_palindrome(listint_t **head)
 		front = front->next->next;
 		rare = rare->next;
 	}
-	listint_t *reversedSecondHalf = reverseList(rare);
+	listint_t *reversedSecondHalf = reverseList(&rare);
 	listint_t *firstHalf = *head;
 
 	while (reversedSecondHalf != NULL)
