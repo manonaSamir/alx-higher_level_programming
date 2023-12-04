@@ -1,59 +1,72 @@
 #include "lists.h"
 
-listint_t *reverseList(listint_t **head);
-int is_palindrome(listint_t **head);
-
 /**
- * reverseList - reverse list
- * @head: pointer to pointer of first node of listint_t list
- * Return: A pointer to the head of the reversed list.
+ * reverse_listint - reverses a linked list
+ * @head: pointer to the first node in the list
+ *
+ * Return: pointer to the first node in the new list
  */
-listint_t *reverseList(listint_t **head)
+void reverse_listint(listint_t **head)
 {
-	listint_t *node = *head, *next, *prev = NULL;
+	listint_t *prev = NULL;
+	listint_t *current = *head;
+	listint_t *next = NULL;
 
-	while (node)
+	while (current)
 	{
-		next = node->next;
-		node->next = prev;
-		prev = node;
-		node = next;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
 
 	*head = prev;
-	return (*head);
 }
 
 /**
- * is_palindrome - Checks if a singly linked list is a palindrome.
- * @head: A pointer to the head of the linked list.
+ * is_palindrome - checks if a linked list is a palindrome
+ * @head: double pointer to the linked list
  *
- * Return: If the linked list is not a palindrome - 0.
- *         If the linked list is a palindrome - 1.
+ * Return: 1 if it is, 0 if not
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *front = *head;
-	listint_t *rare = *head;
+	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (front != NULL && front->next != NULL)
+
+	while (1)
 	{
-		front = front->next->next;
-		rare = rare->next;
+		fast = fast->next->next;
+		if (!fast)
+		{
+			dup = slow->next;
+			break;
+		}
+		if (!fast->next)
+		{
+			dup = slow->next->next;
+			break;
+		}
+		slow = slow->next;
 	}
-	listint_t *reversedSecondHalf = reverseList(&rare);
 
-	listint_t *firstHalf = *head;
+	reverse_listint(&dup);
 
-	while (reversedSecondHalf != NULL)
+	while (dup && temp)
 	{
-		if (firstHalf->n != reversedSecondHalf->n)
+		if (temp->n == dup->n)
+		{
+			dup = dup->next;
+			temp = temp->next;
+		}
+		else
 			return (0);
-		firstHalf = firstHalf->next;
-		reversedSecondHalf = reversedSecondHalf->next;
 	}
-	reverseList(&front);
-	return (1);
+
+	if (!dup)
+		return (1);
+
+	return (0);
 }
