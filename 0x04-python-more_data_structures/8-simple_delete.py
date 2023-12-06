@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def simple_delete(a_dictionary, key=""):
-    return {x: value for x, value in a_dictionary.items() if x != key}
+    a_dictionary.pop(key, None)
+    return a_dictionary
