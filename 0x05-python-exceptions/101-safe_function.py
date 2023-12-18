@@ -11,4 +11,3 @@ def safe_function(fct, *args):
         result = None
     finally:
         return result
-   
