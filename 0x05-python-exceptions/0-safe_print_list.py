@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
-    try:
-        result = [item for item in enumerate(my_list) if item[1] < x]
-        return (result)
-    except ValueError:
-        return ("enter a valid number")
+    count = 0
+    for i in range(x):
+        try:
+            print(my_list[i], end="")
+            count += 1
+        except (TypeError, IndexError):
+            pass
+    return (i)
