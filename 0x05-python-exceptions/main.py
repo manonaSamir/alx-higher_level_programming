@@ -1,14 +1,25 @@
 #!/usr/bin/python3
-list_division = __import__('4-list_division').list_division
+safe_function = __import__('101-safe_function').safe_function
 
-my_l_1 = [10, 8, 4]
-my_l_2 = [2, 4, 4]
-result = list_division(my_l_1, my_l_2, max(len(my_l_1), len(my_l_2)))
-print(result)
 
-print("--")
+def my_div(a, b):
+    return a / b
 
-my_l_1 = [10, 8, 4, 4]
-my_l_2 = [2, 0, "H", 2, 7]
-result = list_division(my_l_1, my_l_2, max(len(my_l_1), len(my_l_2)))
-print(result)
+result = safe_function(my_div, 10, 2)
+print("result of my_div: {}".format(result))
+
+result = safe_function(my_div, 10, 0
+                       
+
+print("result of my_div: {}".format(result))
+
+
+def print_list(my_list, len):
+    i = 0
+    while i < len:
+        print(my_list[i])
+        i += 1
+    return len
+
+result = safe_function(print_list, [1, 2, 3, 4], 10)
+print("result of print_list: {}".format(result))
