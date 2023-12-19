@@ -38,6 +38,20 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
+    @property
+    def position(self):
+        """Getter for private position."""
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if type(value) is tuple:
+            if len(list(filter(lambda x: type(x) is int and x >= 0, value)))\
+                    == 2:
+                self.__position = value
+                return
+        raise TypeError("position must be a tuple of 2 positive integers")
+
     def my_print(self):
         """prints the square on the screen using #."""
         if self.__size > 0:
