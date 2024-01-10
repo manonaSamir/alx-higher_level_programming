@@ -36,3 +36,16 @@ TypeError: print_sorted() takes 1 positional argument but 2 were given
 Traceback (most recent call last):
 	...
 TypeError: '<' not supported between instances of 'str' and 'int'
+
+>>> my_list = MyList(1)
+Traceback (most recent call last):
+	...
+TypeError: 'int' object is not iterable
+
+
+>>> my_list = MyList([1])
+>>> my_list.print_sorted()
+[1]
+>>> my_list = MyList([4, 3, 2, 1])
+>>> my_list.print_sorted()
+[1, 2, 3, 4]
