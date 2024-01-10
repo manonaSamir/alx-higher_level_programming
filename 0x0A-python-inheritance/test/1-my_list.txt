@@ -1,0 +1,7 @@
+Test cases for MyList class
+
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList(None)
+Traceback (most recent call last):
+	...
+TypeError: 'NoneType' object is not iterable
