@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+"3-say_my-name" module.
+The 3-say_my_name  module supplies one function, say_my_name.
+"""
+
+
 say_my_name = __import__('3-say_my_name').say_my_name
 
 say_my_name("John", "Smith")
@@ -8,4 +14,4 @@ try:
     say_my_name(12, "White")
 except Exception as e:
     print(e)
-    
+   
