@@ -9,6 +9,11 @@ class MyClass2(object):
     def my_meth(self):
         pass
 
-print(lookup(MyClass1))
-print(lookup(MyClass2))
-print(lookup(int))
+class MyClass():
+    def dir(self): 
+        return ["my_class", "is", "empty"]
+                
+print(lookup(MyClass))
+# print(lookup(MyClass1))
+# print(lookup(MyClass2))
+# print(lookup(int))
