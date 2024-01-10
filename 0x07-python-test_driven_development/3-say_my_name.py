@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-"3-say_my-name" module.
-The 3-say_my_name  module supplies one function, say_my_name.
-"""
 
+
+"""Defines say_my_name_function."""
 
 def say_my_name(first_name, last_name=""):
     if type(first_name) is not str:
