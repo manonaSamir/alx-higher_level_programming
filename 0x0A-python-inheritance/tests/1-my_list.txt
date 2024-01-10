@@ -5,3 +5,8 @@ Test cases for MyList class
 Traceback (most recent call last):
 	...
 TypeError: 'NoneType' object is not iterable
+
+>>> my_list = MyList(1)
+Traceback (most recent call last):
+	...
+TypeError: 'int' object is not iterable
