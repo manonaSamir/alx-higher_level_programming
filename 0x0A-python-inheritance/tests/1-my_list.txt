@@ -18,7 +18,9 @@ True
 >>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
 >>> len(mod) > 1
 True
-
+Traceback (most recent call last):
+        ...
+TypeError: object of type 'NoneType' has no len()
 
 >>> issubclass(MyList, list)
 True
