@@ -44,9 +44,3 @@ TypeError: 'NoneType' object is not iterable
 Traceback (most recent call last):
 	...
 TypeError: '<' not supported between instances of 'str' and 'int'
-
->>> my_list.append()
->>> my_list.print_sorted()
-Traceback (most recent call last):
-	...
-TypeError: append() takes exactly one argument (0 given)
