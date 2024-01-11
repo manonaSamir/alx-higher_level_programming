@@ -30,3 +30,6 @@ Using 'MyList'
 >>> my_list = MyList("Hello")
 >>> print(my_list)
 ['H', 'e', 'l', 'l', 'o']
+>>> my_list.append()
+Traceback (most recent call last):
+TypeError: append() takes exactly one argument (0 given)
