@@ -11,7 +11,7 @@ if __name__ == "__main__":
     args = sys.argv[1::]
     try:
         jsonList = load_from_json_file("add_item.json")
-    except:
+    except FileNotFoundError:
         """handling the specific exception"""
         jsonList = []
 
