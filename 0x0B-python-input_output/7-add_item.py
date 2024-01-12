@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""saves object as json string dump"""
+"""Adds items to json file from arguments."""
 import json
+import sys
+from save_to_json_file import save_to_json_file
+from load_from_json_file import load_from_json_file
 
-
-def save_to_json_file(my_obj, filename):
-    """actually does it"""
-    with open(filename, mode='w', encoding='utf-8') as f:
-        f.write(json.dumps(my_obj))
+try:
+        items = load_from_json_file("add_item.json")
+except FileNotFoundError:
+    items = []
+    items.extend(sys.argv[1:])
+    save_to_json_file(items, "add_item.json")
