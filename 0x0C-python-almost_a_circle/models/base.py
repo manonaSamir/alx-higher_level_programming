@@ -88,12 +88,12 @@ class Base:
 
     def draw(list_rectangles, list_squares):
         window = turtle.Screen()
-        window.bgcolor('#EBECED')        
+        window.bgcolor('#EBECED')
         brad = turtle.Turtle()
         brad.pensize(3)
-        turtle.register_shape("resized_circle", ((0, 1), (1, 0), (1, 1), (1, 1)))
+        turtle.register_shape("resized_circle",
+                              ((0, 1), (1, 0), (1, 1), (1, 1)))
         brad.shape("resized_circle")
-        
         brad.pencolor("#194a7a")
         for rect in list_rectangles:
             brad.penup()
@@ -108,7 +108,6 @@ class Base:
             brad.left(90)
             brad.forward(rect.height)
             brad.left(90)
-            
         brad.pencolor("#008585")
         for squ in list_squares:
             brad.penup()
