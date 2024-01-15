@@ -86,16 +86,16 @@ class Rectangle(Base):
                         self.__width, self.__height))
 
     def update(self, *args, **kwargs):
-        """assigns an argument to each attribute:"""
+        """updates attributes"""
         if args:
-            allowed_keys = {'id','width', 'height', 'x', 'y'}
+            i = 0
+            keys = ['id', 'width', 'height', 'x', 'y']
+            for arg in args:
+                setattr(self, keys[i], arg)
+                i += 1
+        elif kwargs:
             for key, value in kwargs.items():
-                if key in allowed_keys:
-                    setattr(self, key, value)
-        elif kwargs and len(kwargs) != 0:
-            allowed_keys = {'id', 'width', 'height', 'x', 'y'}
-            for key, value in kwargs.items():
-                if key in allowed_keys:
+                if hasattr(self, key):
                     setattr(self, key, value)
 
     def to_dictionary(self):
