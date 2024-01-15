@@ -88,7 +88,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """assigns an argument to each attribute:"""
         if args:
-            allowed_keys = {'width', 'height', 'x', 'y'}
+            allowed_keys = {'id','width', 'height', 'x', 'y'}
             for key, value in kwargs.items():
                 if key in allowed_keys:
                     setattr(self, key, value)
