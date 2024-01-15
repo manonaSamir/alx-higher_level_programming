@@ -7,7 +7,7 @@ import turtle
 
 
 class Base:
-    """A simple Base class."""
+    """Defines a base model class."""
     __nb_objects = 0
 
     def __init__(self, id=None):
