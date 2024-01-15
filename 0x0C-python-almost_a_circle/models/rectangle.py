@@ -92,19 +92,11 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 if key in allowed_keys:
                     setattr(self, key, value)
-        if kwargs:
+        elif kwargs and len(kwargs) != 0:
             allowed_keys = {'id', 'width', 'height', 'x', 'y'}
             for key, value in kwargs.items():
                 if key in allowed_keys:
                     setattr(self, key, value)
-
-    # def update(self, *args):
-    #         """assigns an argument to each attribute:"""
-    #         if args:
-    #             allowed_keys = {'width', 'height', 'x', 'y'}
-    #             for key in args:
-    #                 if key in allowed_keys:
-    #                     setattr(self, key)
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle:"""
