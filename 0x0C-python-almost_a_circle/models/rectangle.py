@@ -91,14 +91,10 @@ class Rectangle(Base):
             i = 0
             keys = ['id', 'width', 'height', 'x', 'y']
             for arg in args:
-                if not isinstance(arg, int) and keys[i] != 'id':
-                    raise TypeError(f"{keys[i]} must be an integer")
                 setattr(self, keys[i], arg)
                 i += 1
         elif kwargs:
             for key, value in kwargs.items():
-                if not isinstance(value, int) and key != 'id':
-                    raise TypeError(f"{key} must be an integer")
                 if hasattr(self, key):
                     setattr(self, key, value)
 
