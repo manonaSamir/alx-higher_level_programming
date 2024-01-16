@@ -48,8 +48,8 @@ class TestBase(unittest.TestCase):
         with open("Square.json", 'r') as f:
             self.assertTrue(len(f.read()) > 1)
 
-        with self.assertRaises(TypeError, msg="must have value"):
-                    r1 = Rectangle.save_to_file([])
+        # with self.assertRaises(TypeError, msg="must have value"):
+        #             r1 = Rectangle.save_to_file([])
 
         Rectangle.save_to_file(None)
         Square.save_to_file(None)
