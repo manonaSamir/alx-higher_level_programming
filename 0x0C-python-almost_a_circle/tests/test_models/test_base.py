@@ -57,8 +57,14 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", 'r') as f:
             self.assertTrue(f.read() == "[]")
         with open("Square.json", 'r') as f:
-            self.assertTrue(f.read() == "[]")           
-        
+            self.assertTrue(f.read() == "[]")  
+            
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+            
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
+            
 
     def test_fromJson(self):
         """tests the fromjson"""
