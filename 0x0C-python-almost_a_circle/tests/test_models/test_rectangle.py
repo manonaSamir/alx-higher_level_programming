@@ -12,7 +12,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_pep8(self):
         style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/rectangle.py','models/base.py','models/square.py'])
+        p = style.check_files(
+            ['models/rectangle.py', 'models/base.py', 'models/square.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_ids(self):
@@ -30,10 +31,27 @@ class TestRectangle(unittest.TestCase):
     def test_attr_errors(self):
         """tests errors"""
         Base._Base__nb_objects = 0
-        # with self.assertRaises(TypeError, msg="height must be an integer"):
-        #     r1 = Rectangle(10, "2")
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            r1 = Rectangle(10, "2")
+
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            r1 = Rectangle(1, 2, 3, "4")
+
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            r1 = Rectangle(1, 2, "3")
+
         with self.assertRaises(ValueError, msg="height must be  > 0"):
             r1 = Rectangle(-2, 1)
+
+        with self.assertRaises(ValueError, msg="height must be  > 0"):
+            r1 = Rectangle(0, 1)
+
+        with self.assertRaises(ValueError, msg="width must be  > 0"):
+            r1 = Rectangle(1, 0)
+
+        with self.assertRaises(ValueError, msg="width must be  > 0"):
+            r1 = Rectangle(1, -2)
+
         with self.assertRaises(TypeError, msg="width must be an integer"):
             r1 = Rectangle({1: 2}, 2)
         with self.assertRaises(ValueError, msg="width must be > 0"):
@@ -44,6 +62,12 @@ class TestRectangle(unittest.TestCase):
             r3.x = {}
         with self.assertRaises(ValueError, msg="y must be >=0"):
             r4 = Rectangle(10, 2, 3, -1)
+
+        with self.assertRaises(ValueError, msg="x must be  > 0"):
+           r1 = Rectangle(1, 2, -3)
+
+        with self.assertRaises(ValueError, msg="x must be  > 0"):
+            r1 = Rectangle(1, 2, 0)
 
     def test_areas(self):
         """tests areas"""
