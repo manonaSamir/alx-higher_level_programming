@@ -71,8 +71,20 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(len(file.read()), 52)
+            
+        r2 = Square(1)
+        Square.save_to_file([r2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 38)
 
-
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+            
     def test_fromJson(self):
         """tests the fromjson"""
         r_input = [{'id': 89, 'width': 10, 'height': 4}]

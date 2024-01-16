@@ -49,6 +49,16 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError, msg="y must be >=0"):
             r4 = Square(10, 2, -1)
 
+        with self.assertRaises(ValueError) as e:
+            r = Square(1, -2)
+        msg = "x must be >= 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Square(0)
+        msg = "width must be > 0"
+        self.assertEqual(str(e.exception), msg)
+
     def test_areas(self):
         """tests areas"""
         Base._Base__nb_objects = 0
