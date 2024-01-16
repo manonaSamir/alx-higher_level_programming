@@ -36,6 +36,10 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError, msg="size must be an integer"):
             r1 = Square("2")
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            r1 = Square(1,"2")
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            r1 = Square(1,2,"2")
         with self.assertRaises(ValueError, msg="size must be  > 0"):
             r1 = Square(-2)
         with self.assertRaises(TypeError, msg="size must be an integer"):
