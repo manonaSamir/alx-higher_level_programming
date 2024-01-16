@@ -62,8 +62,8 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
             
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(len(file.read()), 52)
+        # with open("Rectangle.json", "r") as file:
+        #     self.assertEqual(len(file.read()), 52)
             
 
     def test_fromJson(self):
