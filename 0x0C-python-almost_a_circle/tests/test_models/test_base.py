@@ -47,7 +47,7 @@ class TestBase(unittest.TestCase):
             self.assertTrue(len(f.read()) > 1)
         with open("Square.json", 'r') as f:
             self.assertTrue(len(f.read()) > 1)
-            
+
         list_output = Rectangle.save_to_file([])
         with open("Rectangle.json", 'r') as f:
             self.assertRaises(TypeError, msg="Rectangle must be")
@@ -57,8 +57,8 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", 'r') as f:
             self.assertTrue(f.read() == "[]")
         with open("Square.json", 'r') as f:
-            self.assertTrue(f.read() == "[]")  
-            
+            self.assertTrue(f.read() == "[]")
+
         try:
             os.remove("Rectangle.json")
         except:
@@ -66,8 +66,12 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
-            
-      
+
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
+
 
     def test_fromJson(self):
         """tests the fromjson"""
