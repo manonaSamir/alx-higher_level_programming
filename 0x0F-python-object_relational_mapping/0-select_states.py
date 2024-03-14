@@ -16,5 +16,6 @@ if __name__ == "__main__":
     result.execute("""SELECT * FROM states ORDER BY id""")  
     rows = result.fetchall()
     for row in rows:
-        print(f"({row[0]}, '{row[1]}')")
+       print(row)
+    result.close()
         
