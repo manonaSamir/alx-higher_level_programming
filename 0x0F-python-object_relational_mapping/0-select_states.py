@@ -12,6 +12,7 @@ if __name__ == "__main__":
     db_name = args[3]
     dbConnect = _mysql.connect(host="localhost", port = 3306, user = username, password= password, database = db_name, charset="utf8")    
     dbConnect.query("""SELECT * FROM states ORDER BY id""")
-    rows = dbConnect.store_result()
+    result = dbConnect.use_result()
+    rows = result.fetchall()   
     for row in rows:
         print(f"({row[0]}, '{row[1]}')")
