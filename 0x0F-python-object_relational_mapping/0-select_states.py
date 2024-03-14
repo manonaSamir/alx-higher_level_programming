@@ -15,5 +15,6 @@ if __name__ == "__main__":
     result = dbConnect.use_result()
     row = result.fetch_row()
     while row:
-        print(f"({row[0]}, '{row[1]}')")
+        if len(row) > 1:
+            print(f"({row[0]}, '{row[1]}')")
         row = result.fetch_row()
