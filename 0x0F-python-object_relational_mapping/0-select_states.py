@@ -10,7 +10,7 @@ if __name__ == "__main__":
     username = args[1]
     password = args[2]
     db_name = args[3]
-    dbConnect = _mysql.connect(host="localhost", port = 3306, user = username, password= password, db= db_name, charset="utf8")    
+    dbConnect = _mysql.connect(host="localhost", port = 3306, user = username, password= password, database = db_name, charset="utf8")    
     dbConnect.query("""SELECT * FROM states ORDER BY id""")
     rows = dbConnect.store_result()
     for row in rows:
