@@ -14,7 +14,7 @@ if __name__ == "__main__":
                          password=password, database=db_name, charset="utf8")
     result = db.cursor()
     result.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
-                .format(name))
+                   .format(name))
     rows = result.fetchall()
     for row in rows:
         print(row)
