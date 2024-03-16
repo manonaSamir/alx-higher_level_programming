@@ -2,7 +2,8 @@
 """ changes the name of a State object from the database """
 import sys
 from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
+from sqlalchemy import MetaData
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 
@@ -19,3 +20,4 @@ if __name__ == "__main__":
     state.name = 'New Mexico'
     session.commit()
     session.close()
+
