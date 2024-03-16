@@ -3,18 +3,18 @@
 import sys
 from model_state import Base, State
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session
+from sqlalchemy import select
 
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name), pool_pre_ping=True)
+                           .format(username, password, db_name))
     Base.metadata.create_all(engine)
-    # Session = sessionmaker(bind=engine)
     session = Session(engine)
-    new_instance = session.query(State).filter_by(id=2).first()
-    new_instance.name = 'New Mexico'
+    query = select(State).where(State.id == 2)
+    state = session.execute(query).fetchone().State
+    state.name = 'New Mexico'
     session.commit()
