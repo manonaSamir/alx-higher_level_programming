@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# Model city
+
+""" Script defines City class that inherits from Base. """
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base
 from model_state import Base, State
