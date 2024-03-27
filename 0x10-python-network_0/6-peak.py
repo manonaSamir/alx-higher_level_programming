@@ -10,8 +10,8 @@ def Find(lo, h, ints):
     if lo == h:
         return ints[h]
     if ints[mid] < ints[mid + 1]:
-        return(Find(mid + 1, h, ints))
-    return(Find(lo, mid, ints))
+        return (Find(mid + 1, h, ints))
+    return (Find(lo, mid, ints))
 
 
 def find_peak(list_of_integers):
@@ -20,4 +20,4 @@ def find_peak(list_of_integers):
     '''
     if not list_of_integers:
         return
-    return(Find(0, len(list_of_integers) - 1, list_of_integers))
+    return (Find(0, len(list_of_integers) - 1, list_of_integers))
