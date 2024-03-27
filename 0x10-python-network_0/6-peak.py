@@ -3,7 +3,6 @@
 this function finds a peak in a list of unsorted integers
 """
 
-
 def Find(lo, h, ints):
     """find the peak int"""
     mid = (lo + h) // 2
@@ -15,6 +14,9 @@ def Find(lo, h, ints):
 
 
 def find_peak(list_of_integers):
+    '''
+        Finds the peak in a list of numbers
+    '''
     if not list_of_integers:
         return
     return(Find(0, len(list_of_integers) - 1, list_of_integers))
