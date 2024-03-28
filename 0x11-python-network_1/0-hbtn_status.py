@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Get the status of intranet url"""
-from urllib import request
+import urllib.request
 
 
 if __name__ == "__main__":
