@@ -1,15 +1,13 @@
 #!/usr/bin/python3
+"""Get the status of intranet url"""
 from urllib import request
 
 
-"""Get the status of intranet url"""
-
 if __name__ == "__main__":
-
-    url = "https://alx-intranet.hbtn.io/status"
-    with request.urlopen(url) as response:
-        data = response.read()
+    request = urllib.request.Request("https://intranet.hbtn.io/status")
+    with urllib.request.urlopen(request) as response:
+        body = response.read()
         print("Body response:")
-        print(f"\t- type: {type(data)}")
-        print(f"\t- content: {data}")
-        print(f"\t- utf8 content: {data.decode('utf-8')}")
+        print("\t- type: {}".format(type(body)))
+        print("\t- content: {}".format(body))
+        print("\t- utf8 content: {}".format(body.decode("utf-8")))
