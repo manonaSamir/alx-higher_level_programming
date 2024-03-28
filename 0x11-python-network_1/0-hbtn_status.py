@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Get the status of intranet url"""
-
 import urllib.request
 
 
